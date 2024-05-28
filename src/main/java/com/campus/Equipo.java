@@ -12,6 +12,7 @@ public class Equipo {
     int tpa = 0; //Total de Partidos
     int tpu = 0; //Total de Puntos
 
+
     public Equipo(String nombre){
         this.nombre = nombre;
     }

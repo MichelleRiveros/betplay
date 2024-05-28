@@ -2,14 +2,44 @@ package com.campus;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import com.campus.ListaEquipo;
+
 
 public class Main {
+
+    public static void reportes(ListaEquipo equipos, Scanner sc){
+
+        while (true){
+
+            System.out.println("1. Nombre del equipo que màs goles anoto \n2. Nombre del equipo que màs puntos tiene" +
+                                "\n3. Nombre del equipo que màs partidos gano \n4. Total de goles anotados por todos los equipos" +
+                                "\n5. Promedio de goles anotados en el torneo");
+
+            switch (Integer.parseInt(sc.nextLine())) {
+                case 1:
+                    
+                    break;
+            
+                default:
+                    break;
+            }
+        }
+    }
+
+
+
+
+
+
     public static void main(String[] args) {
-        ArrayList<Equipo> equipos = new ArrayList<Equipo>();
+
+        ListaEquipo equipos = new ListaEquipo();
         ArrayList<Partido> partidos = new ArrayList<Partido>(); 
+        @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Bienvedio a BetPlay \nIngrese la opcion a la que desea ingresar: \n1. Registrar Equipo \n2. Registrar Partidos \n3. Tabla de Posiciones \n4. Reportes \n5. Partidos Jugados \n6. Equipos");
+        System.out.println("Bienvedio a BetPlay \nIngrese la opcion a la que desea ingresar: \n1. Registrar Equipo \n2. Registrar Partido"+
+                            "\n3. Reportes \n4. Tabla de Posiciones \n5. Partidos Jugados \n6. Equipos");
         int opc = sc.nextInt();
         sc.nextLine();
 
@@ -17,9 +47,9 @@ public class Main {
             case 1:
                 System.out.println("Ingrese el nombre del equipo");
                 String nombreEquipo = sc.nextLine();
-                Equipo agregarEquipo = new Equipo(nombreEquipo);
-                equipos.add(agregarEquipo);
-                System.out.println(String.format("El equipo %s ha sido agregado con exito", agregarEquipo.getnombre()));
+                Equipo equipo = new Equipo(nombreEquipo);
+                equipos.agregarEquipos(equipo);
+                System.out.println(String.format("El equipo %s ha sido agregado con exito", equipo.getnombre()));
                 break;
             
             case 2:
@@ -27,24 +57,32 @@ public class Main {
                 System.out.println("Fecha del Partido");
 
                 String fechaPartido = sc.nextLine();
-                int temp = 0;
 
-                for (Equipo equipos2 : equipos) {
-                    System.out.println( temp + ". " +equipos2);
-                    temp++;
-                }
+                equipos.listarEquipos(); 
 
                 System.out.println("Selecciona equipo local: ");
                 int idEquipo = sc.nextInt();
-                Equipo equipoLocal = equipos.get(idEquipo);
                 
-                System.out.println("Goles del equipo local: ");
+                while(!equipos.ifExist(idEquipo)){
+                    System.out.println("Ingrese un equipo valido");
+                    idEquipo = sc.nextInt();
+                }
+                
+                Equipo equipoLocal = equipos.getListaEquipo(idEquipo);
+                
+                System.out.println("Goles del equipo visitante: ");
                 int golesEquipoLocal = sc.nextInt();
                 
 
                 System.out.println("Selecciona equipo visitante: ");
-                idEquipo = sc.nextInt();
-                Equipo equipoVisitante = equipos.get(idEquipo);
+                int idEquipoV = sc.nextInt();
+
+                while(!equipos.ifExist(idEquipoV) && idEquipoV != idEquipo){
+                    System.out.println("Ingrese un equipo valido");
+                    idEquipo = sc.nextInt();
+                }
+
+                Equipo equipoVisitante = equipos.getListaEquipo(idEquipoV);
 
                 System.out.println("Goles del equipo visitante: ");
                 int golesEquipoVisitante = sc.nextInt();
@@ -55,6 +93,9 @@ public class Main {
                 break;
                 
             case 3:
+
+
+                
                 
                 break;
 
