@@ -3,14 +3,14 @@ package com.campus;
 
 public class Equipo {
 
-    String nombre;
-    int pg = 0; //Partidos Ganados
-    int pp = 0; //Partidos Perdidos
-    int pe = 0; //Partidos Empatados
-    int gf = 0; //Goles a Favor
-    int gc = 0; //Goles en Contra
-    int tpa = 0; //Total de Partidos
-    int tpu = 0; //Total de Puntos
+    private String nombre;
+    private int pg = 0; //Partidos Ganados
+    private int pp = 0; //Partidos Perdidos
+    private int pe = 0; //Partidos Empatados
+    private int gf = 0; //Goles a Favor
+    private int gc = 0; //Goles en Contra
+    private int tpa = 0; //Total de Partidos
+    private int tpu = 0; //Total de Puntos
 
 
     public Equipo(String nombre){
@@ -72,5 +72,9 @@ public class Equipo {
 
     public int getTotalpuntos() {
         return tpu;
+    }
+
+    public void imprimirEquipo(){
+        System.out.println(nombre + " " + pg + " " + pp + " " + pe + " " + gf + " " + gc + " " + tpa + " " + tpu);
     }
 }

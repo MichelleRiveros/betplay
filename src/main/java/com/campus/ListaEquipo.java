@@ -18,7 +18,7 @@ public class ListaEquipo {
         int temp = 0;
 
         for (Equipo equipo : listaEquipo) {
-            System.out.println( temp + ". " + equipo);
+            System.out.println( temp + ". " + equipo.getnombre());
             temp++;
         }
     }
@@ -38,7 +38,7 @@ public class ListaEquipo {
         }
     }
 
-    public void equipoMasGoles(Equipo listaEquipo){
+    public void equipoMasGoles(){
         
         Equipo nombre = getListaEquipo(0);
 
@@ -52,7 +52,7 @@ public class ListaEquipo {
     }
 
     
-    public void equipoMasPuntos(Equipo listaEquipo){
+    public void equipoMasPuntos(){
         
         Equipo puntos = getListaEquipo(0);
 
@@ -65,5 +65,66 @@ public class ListaEquipo {
         System.out.println(puntos.getnombre());
     }
 
+
+    public void equipoMasPartidosGanados(){
+        
+        Equipo puntos = getListaEquipo(0);
+
+        for (Equipo equipo : this.listaEquipo) {
+            if (equipo.getpartidosganados() > puntos.getpartidosganados()){
+                puntos = equipo;
+            }
+            
+        }
+        System.out.println(puntos.getnombre());
+    }
+
+    
+    public void golesTotales(){
+        
+        int puntos = 0;
+
+        for (Equipo equipo : this.listaEquipo) {
+            puntos += equipo.getGolesfavor();
+        }
+        System.out.println(puntos);
+    }
+
+
+    public void promedio(ArrayList<Partido> partidos){
+        
+        int totalPartidos = partidos.size();
+        int totalGoles = 0;
+        int promedio = 0;
+
+        for (Equipo equipo : listaEquipo) {
+            totalGoles += equipo.getGolesfavor();
+        }
+
+        promedio = totalGoles/totalPartidos;
+        System.out.println(promedio);
+    }
+
+    public void tabaPosiciones(){
+
+        ArrayList<Equipo> tablaPosiciones = listaEquipo;
+        
+        for (Equipo equipo1 : tablaPosiciones) {
+            
+            for (Equipo equipo2 : tablaPosiciones) {
+                
+                if (equipo1.getTotalpuntos() < equipo2.getTotalpuntos()){
+                    
+                    Equipo temp = equipo1;
+                    equipo1 = equipo2;
+                    equipo2 = temp;
+                }          
+            }
+        }
+        
+        for (Equipo equipo3 : tablaPosiciones) {
+            equipo3.imprimirEquipo();
+        }
+    }
 
 }
