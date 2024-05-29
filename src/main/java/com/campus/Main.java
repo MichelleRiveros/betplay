@@ -40,6 +40,7 @@ public class Main {
 
                     System.out.println("Ingrese los siguientes datos:");
 
+
                     System.out.println("Fecha del Partido");
 
                     String fechaPartido = sc.nextLine();
@@ -75,32 +76,9 @@ public class Main {
                     int golesEquipoVisitante = sc.nextInt();
                     
                     Partido partido = new Partido(fechaPartido, equipoLocal, equipoVisitante, golesEquipoLocal, golesEquipoVisitante);
+                    partido.determinarGanador(golesEquipoLocal,golesEquipoVisitante);
+                 
                     partidos.add(partido);
-
-                    while(true){
-
-                        if (golesEquipoLocal > golesEquipoVisitante){
-                            partido.equipoLocal.gano();
-
-                            System.out.println("Hola");
-                        }
-                        
-                        equipos.tabaPosiciones();
-                        
-                        break;
-                    }
-
-                    System.out.println(partido.fechaDelPartido);
-
-                    System.out.println(partido);
-
-                    partido.prueba1();
-
-                    
-
-
-                    System.out.println(partido.fechaDelPartido);
-
                     break;
                     
                 case 3:

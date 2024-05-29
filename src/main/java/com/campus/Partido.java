@@ -18,7 +18,7 @@ public class Partido {
         this.golesEquipoVisitante = golesEquipoVisitante;
     }
 
-    public void determinarGanador(){  
+    public void determinarGanador(int golesAfavorLocal, int golesAfavorVisitante){  
 
         int golesEL = this.golesEquipoLocal;
         int golesEV = this.golesEquipoVisitante;
@@ -39,41 +39,11 @@ public class Partido {
             this.equipoLocal.empato();
         }
 
+        this.equipoLocal.setGolesAfavor(golesAfavorLocal);
+        this.equipoLocal.setGolesEnContra(golesAfavorVisitante);
+        this.equipoVisitante.setGolesAfavor(golesAfavorVisitante);
+        this.equipoVisitante.setGolesEnContra(golesAfavorLocal);
     }
-
-    public void prueba(int golesEL, int golesEV, int equipoLocal, int equipoVisitante){
-
-        int idEquipoLocal = equipoLocal;
-        int idEquipoVisitante = equipoVisitante;
-
-        if (golesEL > golesEV){
-
-            System.out.println("Esoooo");
-            System.out.println(golesEL);
-            System.out.println(this.golesEquipoLocal);
-
-            this.golesEquipoLocal += golesEL;
-
-
-            System.out.println(idEquipoLocal);
-            
-            System.out.println(idEquipoVisitante);
-
-            System.out.println(this.golesEquipoLocal);
-            
-        
-        }
-
-    }
-
-
-    public void prueba1(){
-        System.out.println(equipoLocal);
-    }
-
-
-
-
 
 
 }
