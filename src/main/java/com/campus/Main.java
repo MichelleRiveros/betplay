@@ -28,8 +28,15 @@ public class Main {
 
             switch (opc) {
                 case 1:
+
                     System.out.println("Ingrese el nombre del equipo");
                     String nombreEquipo = sc.nextLine();
+
+                    while(equipos.determinarSiYaExisteElEquipo(nombreEquipo)){
+                        System.out.println("Ingrese el nombre del equipo");
+                        nombreEquipo = sc.nextLine();
+                    }
+
                     Equipo equipo = new Equipo(nombreEquipo);
                     equipos.agregarEquipos(equipo);
                     System.out.println(String.format("El equipo %s ha sido agregado con exito", equipo.getnombre()));
@@ -37,6 +44,10 @@ public class Main {
                     break;
                 
                 case 2:
+
+                    if(equipos.determinarSiLaListaEstaLlena()){
+                        break;
+                    }
 
                     System.out.println("Ingrese los siguientes datos:");
 
@@ -86,7 +97,12 @@ public class Main {
                     break;
 
                 case 4:
-                    equipos.tabaPosiciones();
+
+                    if(equipos.verificarNumerodePartidos()){
+                        equipos.tabaPosiciones();
+                    }
+
+                    System.out.println("Los equipos no han jugado todos los partidos requeridos");
                     break;
                 
                 case 5:

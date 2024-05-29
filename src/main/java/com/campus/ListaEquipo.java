@@ -6,6 +6,7 @@ public class ListaEquipo {
 
     ArrayList<Equipo> listaEquipo = new ArrayList<>();
 
+
     public ListaEquipo(){
         this.listaEquipo = new ArrayList<>();
     }
@@ -125,6 +126,42 @@ public class ListaEquipo {
         for (Equipo equipo3 : tablaPosiciones) {
             equipo3.imprimirEquipo();
         }
+    }
+
+    public boolean determinarSiLaListaEstaLlena(){
+
+        if(this.listaEquipo.isEmpty() && this.listaEquipo.size() < 2){
+            return true;
+        }
+
+        else{
+            return false;
+        }
+    }
+
+    public boolean determinarSiYaExisteElEquipo(String nombre){
+        for (Equipo equipo : listaEquipo) {
+            if(equipo.getnombre().equalsIgnoreCase(nombre)){
+                return true;   
+            }
+        }
+
+        if(nombre.isEmpty()){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean verificarNumerodePartidos(){
+
+        for (int i = 0; i < listaEquipo.size() - 1; i++) {
+            
+            if(listaEquipo.get(i).getTotalpartidos() != listaEquipo.get(i++).getTotalpartidos()){
+                return false;
+            }
+        }
+
+        return true;
     }
 
 }
