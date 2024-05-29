@@ -11,6 +11,7 @@ public class Main {
 
         ListaEquipo equipos = new ListaEquipo();
         ArrayList<Partido> partidos = new ArrayList<Partido>(); 
+        Partido instanciaPartido = new Partido();
 
         @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);
@@ -36,7 +37,9 @@ public class Main {
                     break;
                 
                 case 2:
+
                     System.out.println("Ingrese los siguientes datos:");
+
                     System.out.println("Fecha del Partido");
 
                     String fechaPartido = sc.nextLine();
@@ -45,6 +48,7 @@ public class Main {
 
                     System.out.println("Selecciona equipo local: ");
                     int idEquipo = sc.nextInt();
+
                     
                     while(!equipos.ifExist(idEquipo)){
                         System.out.println("Ingrese un equipo valido");
@@ -72,6 +76,30 @@ public class Main {
                     
                     Partido partido = new Partido(fechaPartido, equipoLocal, equipoVisitante, golesEquipoLocal, golesEquipoVisitante);
                     partidos.add(partido);
+
+                    while(true){
+
+                        if (golesEquipoLocal > golesEquipoVisitante){
+                            partido.equipoLocal.gano();
+
+                            System.out.println("Hola");
+                        }
+                        
+                        equipos.tabaPosiciones();
+                        
+                        break;
+                    }
+
+                    System.out.println(partido.fechaDelPartido);
+
+                    System.out.println(partido);
+
+                    partido.prueba1();
+
+                    
+
+
+                    System.out.println(partido.fechaDelPartido);
 
                     break;
                     
@@ -101,7 +129,7 @@ public class Main {
 
             System.out.println("1. Nombre del equipo que màs goles anoto \n2. Nombre del equipo que màs puntos tiene" +
                                 "\n3. Nombre del equipo que màs partidos gano \n4. Total de goles anotados por todos los equipos" +
-                                "\n5. Promedio de goles anotados en el torneo");
+                                "\n5. Promedio de goles anotados en el torneo \n6. Salir");
 
             switch (Integer.parseInt(sc.nextLine())) {
                 case 1:
@@ -135,4 +163,5 @@ public class Main {
     }
 
     
+
 }
