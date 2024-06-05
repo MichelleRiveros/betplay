@@ -1,5 +1,6 @@
 package com.campus;
 
+import java.util.ArrayList;
 
 public class Equipo {
 
@@ -11,7 +12,11 @@ public class Equipo {
     private int gc = 0; //Goles en Contra
     private int tpa = 0; //Total de Partidos
     private int tpu = 0; //Total de Puntos
+    private ArrayList<Profesional> cuerpoMedico; 
+    private ArrayList<CuerpoTecnico> cuerpoTecnico;
+    private ArrayList<Jugador> jugadores; 
 
+    public Equipo(){}
 
     public Equipo(String nombre){
         this.nombre = nombre;
@@ -77,4 +82,22 @@ public class Equipo {
     public void imprimirEquipo(){
         System.out.println(nombre + " " + pg + " " + pp + " " + pe + " " + gf + " " + gc + " " + tpa + " " + tpu);
     }
+
+    public boolean determinarSiYaExisteElJugador(int id){
+
+        if(jugadores.isEmpty()){       
+            return true;
+        }
+
+        for (Jugador jugador : jugadores) {
+
+            if(jugador.getId() == (id)){
+                return true;   
+            
+            }
+        }
+
+        return false;
+    }
+
 }

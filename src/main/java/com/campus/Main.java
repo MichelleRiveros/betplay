@@ -11,7 +11,7 @@ public class Main {
 
         ListaEquipo equipos = new ListaEquipo();
         ArrayList<Partido> partidos = new ArrayList<Partido>(); 
-        Partido instanciaPartido = new Partido();
+        Equipo datosEquipo = new Equipo();
 
         @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);
@@ -21,7 +21,7 @@ public class Main {
         while (flag) {
 
             System.out.println("Bienvedio a BetPlay \nIngrese la opcion a la que desea ingresar: \n1. Registrar Equipo \n2. Registrar Partido"+
-                            "\n3. Reportes \n4. Tabla de Posiciones \n5. Salir");
+                            "\n3. Reportes \n4. Tabla de Posiciones \n5. Team \n6. Salir");
             int opc = sc.nextInt();
             sc.nextLine();
 
@@ -106,8 +106,10 @@ public class Main {
                     break;
                 
                 case 5:
-                    flag = false;                
-                    break;
+                registros(sc);
+
+                case 6: 
+                    flag = false;
 
                 default:
                     System.out.println("Error de opcion");
@@ -155,6 +157,47 @@ public class Main {
             }
         }
     }
+
+    public static void registros(Scanner sc){
+
+        boolean flag = true;
+        while (flag){
+
+            System.out.println("1. Registrar jugadores \n2. Registrar profesional de cuerpo medico" +
+                                "\n3. Registrar integrante del cuerpo tecnico \n4. Listar jugadores de un equipo" +
+                                "\n5. Listar cuerpo tecnico \n6. Salir");
+
+            
+                                switch (Integer.parseInt(sc.nextLine())) {
+                case 1: 
+                    
+                    
+                    break;
+                
+                case 2:                
+                    break;
+                
+                case 3:         
+                    break;
+                
+                case 4:  
+                    break;
+                
+                case 5:
+                    break;
+                
+                case 6:
+                    flag = false;
+                    break;
+            
+                default:
+                    break;
+            }
+        }
+    }
+
+
+
 
     
 
