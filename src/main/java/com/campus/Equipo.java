@@ -83,12 +83,27 @@ public class Equipo {
         System.out.println(nombre + " " + pg + " " + pp + " " + pe + " " + gf + " " + gc + " " + tpa + " " + tpu);
     }
 
+    public void agregarJugador(Jugador jugador1){
+        if(determinarSiYaExisteElJugador(jugador1.getId())){
+            System.out.println("El jugador ya existe");
+        }else{
+            jugadores.add(jugador1);
+        }
+    }
+
+    public void agregarProfesional(Profesional profesional1){
+        if(determinarSiYaExisteElProfesional(profesional1.getId())){
+            System.out.println("El profesional ya existe");
+        }else{
+            cuerpoMedico.add(profesional1);
+        }
+    }
+        
     public boolean determinarSiYaExisteElJugador(int id){
 
         if(jugadores.isEmpty()){       
             return true;
         }
-
         for (Jugador jugador : jugadores) {
 
             if(jugador.getId() == (id)){
@@ -96,8 +111,20 @@ public class Equipo {
             
             }
         }
-
         return false;
     }
 
+    public boolean determinarSiYaExisteElProfesional (int id){
+        if(cuerpoMedico.isEmpty()){
+            return true;
+        }
+        for (Profesional profesional : cuerpoMedico) {
+            if(profesional.getId() == (id)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    
 }

@@ -51,7 +51,6 @@ public class ListaEquipo {
         }
         System.out.println(nombre.getnombre());
     }
-
     
     public void equipoMasPuntos(){
         
@@ -66,7 +65,6 @@ public class ListaEquipo {
         System.out.println(puntos.getnombre());
     }
 
-
     public void equipoMasPartidosGanados(){
         
         Equipo puntos = getListaEquipo(0);
@@ -79,7 +77,6 @@ public class ListaEquipo {
         }
         System.out.println(puntos.getnombre());
     }
-
     
     public void golesTotales(){
         
@@ -90,7 +87,6 @@ public class ListaEquipo {
         }
         System.out.println(puntos);
     }
-
 
     public void promedio(ArrayList<Partido> partidos){
         
