@@ -1,10 +1,12 @@
-package com.campus;
+package com.campus.modulos.Equipos;
 
 import java.util.ArrayList;
 
+import com.campus.modulos.Partidos.Partido;
+
 public class ListaEquipo {
 
-    ArrayList<Equipo> listaEquipo = new ArrayList<>();
+    ArrayList<Equipo> listaEquipo;
 
 
     public ListaEquipo(){

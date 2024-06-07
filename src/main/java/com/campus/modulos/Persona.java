@@ -1,4 +1,4 @@
-package com.campus;
+package com.campus.modulos;
 
 public class Persona{
     int id;

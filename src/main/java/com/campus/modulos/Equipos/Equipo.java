@@ -1,6 +1,10 @@
-package com.campus;
+package com.campus.modulos.Equipos;
 
 import java.util.ArrayList;
+
+import com.campus.modulos.CuerpoProfesionales.Profesional;
+import com.campus.modulos.CuerpoTecnico.CuerpoTecnico;
+import com.campus.modulos.Jugadores.Jugador;
 
 public class Equipo {
 
@@ -126,5 +130,23 @@ public class Equipo {
         return false;
     }
 
+    public void agregarTecnico(CuerpoTecnico tecnico){
+        if(determinarSiYaExisteElJugador(tecnico.getId())){
+            System.out.println("Ya esta registrada esta persona");
+        }else {cuerpoTecnico.add(tecnico);}
+    }
+
+    public boolean determinarSiYaExisteElTecnico(int id){
+        
+        if(cuerpoTecnico.isEmpty()){
+            return true;
+        }
+        for (Profesional profesional : cuerpoMedico) {
+            if(profesional.getId() == (id)){
+                return true;
+            }    
+        }
+        return false;
+    }
     
 }

@@ -1,4 +1,6 @@
-package com.campus;
+package com.campus.modulos.Partidos;
+
+import com.campus.modulos.Equipos.Equipo;
 
 public class Partido {
 

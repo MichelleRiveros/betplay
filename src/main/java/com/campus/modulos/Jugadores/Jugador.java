@@ -1,5 +1,7 @@
-package com.campus;
+package com.campus.modulos.Jugadores;
 import java.util.Scanner;
+
+import com.campus.modulos.Persona;
 
 public class Jugador extends Persona{
     int dorsal;

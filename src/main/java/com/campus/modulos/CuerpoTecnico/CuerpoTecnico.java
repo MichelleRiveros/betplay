@@ -1,4 +1,6 @@
-package com.campus;
+package com.campus.modulos.CuerpoTecnico;
+
+import com.campus.modulos.Persona;
 
 public class CuerpoTecnico extends Persona {
     private String rol;

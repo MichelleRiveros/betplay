@@ -2,7 +2,11 @@ package com.campus;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import com.campus.ListaEquipo;
+
+import com.campus.modulos.Equipos.Equipo;
+import com.campus.modulos.Equipos.ListaEquipo;
+import com.campus.modulos.Jugadores.Jugador;
+import com.campus.modulos.Partidos.Partido;
 
 
 public class Main {

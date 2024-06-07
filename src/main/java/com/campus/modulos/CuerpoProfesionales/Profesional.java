@@ -1,5 +1,7 @@
-package com.campus;
+package com.campus.modulos.CuerpoProfesionales;
 import java.util.Scanner;
+
+import com.campus.modulos.Persona;
 
 public class Profesional extends Persona {
     String titulo;
