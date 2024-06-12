@@ -1,26 +1,49 @@
 package com.campus.modulos.Equipos;
-
 import java.util.ArrayList;
-
+import java.util.Scanner;
 import com.campus.modulos.Partidos.Partido;
 
-public class ListaEquipo {
+
+public class RegistrarEquipo {
 
     ArrayList<Equipo> listaEquipo;
 
 
-    public ListaEquipo(){
+    public RegistrarEquipo(){
         this.listaEquipo = new ArrayList<>();
     }
 
-    public void agregarEquipos(Equipo equipo){
-        this.listaEquipo.add(equipo);
+    public void registrarEquipo(Scanner sc, ArrayList<Equipo> equiposDeFutbol){
+
+        System.out.println("Ingrese el nombre del equipo");
+        String nombreEquipo = sc.nextLine();
+
+        while(determinarSiYaExisteElEquipo(nombreEquipo)){
+                System.out.println("Ingrese el nombre del equipo");
+                nombreEquipo = sc.nextLine();
+        }
+
+        Equipo equipo = new Equipo(nombreEquipo);
+        agregarEquipos(equipo, equiposDeFutbol);
+        System.out.println(String.format("El equipo %s ha sido agregado con exito", equipo.getnombre()));
+        listarEquipos(equiposDeFutbol); 
     }
+
+    public void agregarEquipos(Equipo equipo, ArrayList<Equipo> equiposDeFutbol){
+        this.listaEquipo.add(equipo);
+        equiposDeFutbol.add(equipo);
+    }
+
     
-    public void listarEquipos(){
+    public void listarEquipos(ArrayList<Equipo> equiposDeFutbol){
         int temp = 0;
 
         for (Equipo equipo : listaEquipo) {
+            System.out.println( temp + ". " + equipo.getnombre());
+            temp++;
+        }
+
+        for (Equipo equipo : equiposDeFutbol) {
             System.out.println( temp + ". " + equipo.getnombre());
             temp++;
         }

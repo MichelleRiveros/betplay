@@ -88,6 +88,7 @@ public class Equipo {
     }
 
     public void agregarJugador(Jugador jugador1){
+        
         if(determinarSiYaExisteElJugador(jugador1.getId())){
             System.out.println("El jugador ya existe");
         }else{

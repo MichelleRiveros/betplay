@@ -4,18 +4,27 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.campus.modulos.Equipos.Equipo;
-import com.campus.modulos.Equipos.ListaEquipo;
+import com.campus.modulos.Equipos.RegistrarEquipo;
 import com.campus.modulos.Jugadores.Jugador;
 import com.campus.modulos.Partidos.Partido;
+import com.campus.modulos.Registros.Registro;
 
 
 public class Main {
 
     public static void main(String[] args) {
 
-        ListaEquipo equipos = new ListaEquipo();
+        ArrayList<Equipo> equiposDeFutbol = new ArrayList<Equipo>(); //Se crea una ArrayList Gobal para los equipos
+        ArrayList<Jugador> jugadoresDeFutbol = new ArrayList<>(); //Se crea una ArrayList Gobal para los jugadores
+
+
+
+
+        Registro registro = new Registro();
+
+        RegistrarEquipo equipos = new RegistrarEquipo();
         ArrayList<Partido> partidos = new ArrayList<Partido>(); 
-        Equipo datosEquipo = new Equipo();
+        
        
 
         @SuppressWarnings("resource")
@@ -25,7 +34,7 @@ public class Main {
 
         while (flag) {
 
-            System.out.println("Bienvedio a BetPlay \nIngrese la opcion a la que desea ingresar: \n1. Registrar Equipo \n2. Registrar Partido"+
+            System.out.println("Bienvedio a BetPlay \nIngrese la opcion a la que desea ingresar: \n1. Registros \n2. Registrar Partido"+
                             "\n3. Reportes \n4. Tabla de Posiciones \n5. Team \n6. Salir");
             int opc = sc.nextInt();
             sc.nextLine();
@@ -34,18 +43,7 @@ public class Main {
             switch (opc) {
                 case 1:
 
-                    System.out.println("Ingrese el nombre del equipo");
-                    String nombreEquipo = sc.nextLine();
-
-                    while(equipos.determinarSiYaExisteElEquipo(nombreEquipo)){
-                        System.out.println("Ingrese el nombre del equipo");
-                        nombreEquipo = sc.nextLine();
-                    }
-
-                    Equipo equipo = new Equipo(nombreEquipo);
-                    equipos.agregarEquipos(equipo);
-                    System.out.println(String.format("El equipo %s ha sido agregado con exito", equipo.getnombre()));
-
+                    registro.registros(sc, equiposDeFutbol, jugadoresDeFutbol);
                     break;
                 
                 case 2:
@@ -61,7 +59,7 @@ public class Main {
 
                     String fechaPartido = sc.nextLine();
 
-                    equipos.listarEquipos(); 
+                    equipos.listarEquipos(equiposDeFutbol); 
 
                     System.out.println("Selecciona equipo local: ");
                     int idEquipo = sc.nextInt();
@@ -123,7 +121,7 @@ public class Main {
         
     }
 
-    public static void reportes(ListaEquipo equipos, Scanner sc, ArrayList<Partido> partidos){
+    public static void reportes(RegistrarEquipo equipos, Scanner sc, ArrayList<Partido> partidos){
 
         boolean flag = true;
         while (flag){
