@@ -1,6 +1,7 @@
 package com.campus;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.campus.modulos.Equipos.Equipo;
@@ -242,8 +243,90 @@ public class Main {
         }
     }
 
+/* case 7:
+                    while (true) {
+                        System.out.println("1. Agregar producto");
+                        System.out.println("2. Ver productos");
+                        System.out.println("3. Actualizar producto");
+                        System.out.println("4. Eliminar producto");
+                        System.out.println("5. Salir");
+            
+                        int opcion = sc.nextInt();
+                        sc.nextLine(); // consume newline
+            
+                        switch (opcion) {
+                            case 1:
+                                agregarProducto();
+                                break;
+                            case 2:
+                                verProductos();
+                                break;
+                            case 3:
+                                actualizarProducto();
+                                break;
+                            case 4:
+                                eliminarProducto();
+                                break;
+                            case 5:
+                                System.exit(0);
+                                break;
+                            default:
+                                System.out.println("Opción no válida");
+                        }
+                    }
+ */
 
+ /*private static void agregarProducto() {
+        System.out.print("ID: ");
+        int id = sc.nextInt();
+        sc.nextLine(); // consume newline
 
+        System.out.print("Nombre: ");
+        String nombre = scanner.nextLine();
+
+        System.out.print("Precio: ");
+        double precio = scanner.nextDouble();
+
+        Producto producto = new Producto(id, nombre, precio);
+        productoDAO.agregar(producto);
+    }
+
+    private static void verProductos() {
+        List<Producto> productos = productoDAO.leerTodos();
+        for (Producto producto : productos) {
+            System.out.println(producto.getId() + " - " + producto.getNombre() + " - " + producto.getPrecio());
+        }
+    }
+
+    private static void actualizarProducto() {
+        System.out.print("ID del producto a actualizar: ");
+        int id = scanner.nextInt();
+        scanner.nextLine(); // consume newline
+
+        Producto producto = productoDAO.obtenerPorId(id);
+        if (producto == null) {
+            System.out.println("Producto no encontrado");
+            return;
+        }
+
+        System.out.print("Nuevo nombre: ");
+        String nombre = scanner.nextLine();
+
+        System.out.print("Nuevo precio: ");
+        double precio = scanner.nextDouble();
+
+        producto.setNombre(nombre);
+        producto.setPrecio(precio);
+        productoDAO.actualizar(producto);
+    }
+
+    private static void eliminarProducto() {
+        System.out.print("ID del producto a eliminar: ");
+        int id = scanner.nextInt();
+        scanner.nextLine(); // consume newline
+
+        productoDAO.eliminar(id);
+    }*/
 
     
 
